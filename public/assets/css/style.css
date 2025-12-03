@@ -1,0 +1,58 @@
+.timeline {
+    position: relative;
+    padding: 20px 0;
+}
+
+.timeline:before {
+    content: "";
+    position: absolute;
+    left: 40px; /* Adjust the left position as desired */
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: #ccc;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.timeline-badge {
+    position: absolute;
+    left: 25px; /* Adjust the left position as desired */
+    top: 0;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #ccc;
+}
+
+.timeline-content {
+    margin-left: 50px; /* Adjust the left margin as desired */
+}
+
+.timeline-title {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.timeline-description {
+    margin-bottom: 0px;
+}
+
+.timeline-date {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Optional styling for active or highlighted events */
+.timeline-item.active .timeline-badge {
+    background-color: #198754;
+}
+
+/* Optional styling for finished or highlighted events */
+.timeline-item.finished .timeline-badge {
+    background-color: #0d6efd;
+}

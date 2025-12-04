@@ -3,25 +3,24 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\URL;
 
 class AppServiceProvider extends ServiceProvider
 {
-    /**
-     * Register any application services.
-     *
-     * @return void
-     */
-    public function register()
+    public function boot(): void
     {
-        //
+        // Force HTTPS di production
+        if ($this->app->environment('production')) {
+            URL::forceScheme('https');
+        }
+
+        // Force root URL
+        if (config('app.url')) {
+            URL::forceRootUrl(config('app.url'));
+        }
     }
 
-    /**
-     * Bootstrap any application services.
-     *
-     * @return void
-     */
-    public function boot()
+    public function register(): void
     {
         //
     }

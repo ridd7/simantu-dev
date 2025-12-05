@@ -119,13 +119,17 @@ Route::post('/rekapitulasi-tugas/ajax-list', [RekapitulasiTugasController::class
 Route::get('/rekapitulasi-output', [RekapitulasiOutputController::class, 'index'])->middleware('auth');
 Route::post('/rekapitulasi-output/ajax-list', [RekapitulasiOutputController::class, 'ajax_list'])->middleware('auth');
 
-Route::get('/test-asset', function () {
+Route::get('/debug-url', function () {
     return [
         'APP_URL' => config('app.url'),
         'ASSET_URL' => config('app.asset_url'),
-        'asset()' => asset('assets/css/style.css'),
-        'url()' => url('assets/css/style.css'),
-        'public_path' => public_path('assets/css/style.css'),
-        'file_exists' => file_exists(public_path('assets/css/style.css')),
+        'env_APP_URL' => env('APP_URL'),
+        'env_ASSET_URL' => env('ASSET_URL'),
+        'asset_test' => asset('assets/css/main/app.css'),
+        'url_test' => url('assets/css/main/app.css'),
+        'secure_asset' => secure_asset('assets/css/main/app.css'),
+        'request_scheme' => request()->getScheme(),
+        'request_host' => request()->getHost(),
+        'request_url' => request()->url(),
     ];
 });
